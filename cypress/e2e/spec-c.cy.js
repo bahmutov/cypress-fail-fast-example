@@ -17,4 +17,16 @@ describe('Spec C', () => {
     cy.wait(5000)
     cy.wrap(true).should('be.false')
   })
+
+  it('passes test e', () => {
+    cy.wait(5000)
+  })
+
+  it('passes test f', () => {
+    cy.wait(5000)
+  })
+
+  it('passes test g', () => {
+    cy.wait(5000)
+  })
 })
