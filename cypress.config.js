@@ -3,11 +3,15 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   e2e: {
     // baseUrl, etc
-    supportFile: false,
     fixturesFolder: false,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-      // and load any plugins that require the Node environment
+      require('cypress-fail-fast/plugin')(on, config)
     },
-  }
+    env: {
+      // we want to run other specs even if some tests fail
+      // so our strategy is to skip the rest of the tests
+      // in the current spec
+      FAIL_FAST_STRATEGY: 'spec',
+    },
+  },
 })
